@@ -8,19 +8,19 @@
 /* 文章页背景 */
 .layout>#post {
     /* 以下代表透明度为0.5 可以自行修改*/
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0.8);
     color: #FFFFFF;
 }
 
 
 /* 侧边栏透明 */
 #aside-content .card-widget {
-    background: rgba(255, 255, 255, 0);
-    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.8);
+    color: #000000;
 }
 
 .layout>#post>#article-container{
-    color: #FFFFFF;
+    color: #000000;
 }
 
 /* 页脚footer */
