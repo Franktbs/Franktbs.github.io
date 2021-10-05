@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Python实现导弹拦截系统</title>
+      <link href="/2021/10/05/Python%E5%AE%9E%E7%8E%B0%E5%AF%BC%E5%BC%B9%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2021/10/05/Python%E5%AE%9E%E7%8E%B0%E5%AF%BC%E5%BC%B9%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><h1><font color="#669030">简易拦截系统</font><br /></h1><h2 id="原理">原理</h2><p>通过获取“雷达”监测到的导弹（飞行器）坐标，计算出导弹（飞行器的轨迹，从而进一步得到拦截导弹所需要的发射角度以及击中概率等问题，实现拦截系统的基本功能。</p><h2 id="基本运算">基本运算:</h2><h4 id="二次函数的解析式三点法计算">二次函数的解析式三点法计算</h4><p>$$ {\Large {\color{Orange}a=\frac{y_{1}(x_{3}-x_{2})-y_{2}(x_{3}-x_{1})+y_{3}(x_{2}-x_{1})}{(x_{3}-x_{2})(x_{3}-x_{1})(x_{2}-x_{1})}} }$$<br>$$ {\Large {\color{Violet}b=\frac{y_{2}-y_{1}-a(x_{2}^{2}-x_{1}^{2})}{x_{2}-x_{1}} }}  $$</p><h3 id="斜抛运动的轨迹方程">斜抛运动的轨迹方程</h3><p>$$ {\Large {\color{Brown} y = x\tan \theta -\frac{g}{2v_{0}^{2}\cos ^2\theta }x^2 }} $$</p><h4 id="即">即</h4><p>$$ {\Large{\color{Red} a = -\frac{g}{2v_{0}^{2}\cos ^2\theta }x^2  }} $$<br>$$ {\Large{\color{Purple} b = \tan \theta}} $$</p><h3 id="从而计算出初速度和导弹方向">从而计算出初速度和导弹方向</h3><h2 id="发射方程">发射方程</h2><p><img src="https://img-blog.csdnimg.cn/20210501154255576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NoaXJwVEI=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><p>在得到导弹的轨迹方程后，我们就要计算好将在哪里将导弹拦截住<br>如图拦截系统在坐标（0，24）处<br>将在B点拦截导弹，若导弹现在处于F点处，拦截导弹的速度为 v ,则可以计算出拦截导弹的发射角度.<br>由上方程可以解得 $v_{0}$ ,设 $t$ 秒后拦截，则有方程:</p><p>$$ { v_{0}\cos\theta \cdot t + v\cos\alpha \cdot t  =14 }$$<br>$$ { v\sin\alpha\cdot t=5}$$</p><p>可将 $t$ , $\alpha$ 解出。</p><h1></h1><h1>Interception System</h1><h2 id="Author-Powered-By-Ridge-Frank-Physics-Math-Python">Author Powered By Ridge Frank, Physics, Math, Python</h2><h2 id="Theory">Theory</h2><p>By obtaining the coordinates of the missile (aircraft) monitored by the radar, the trajectory of the missile (aircraft) can be calculated, so as to further obtain the launching angle and hitting probability required for intercepting the missile, and realize the basic functions of the interception system.</p><h2 id="Basic-operation">Basic operation:</h2><h4 id="Calculation-of-quadratic-function-by-analytic-three-point-method">Calculation of quadratic function by analytic three point method</h4><p>$$ {\Large {\color{Orange}a=\frac{y_{1}(x_{3}-x_{2})-y_{2}(x_{3}-x_{1})+y_{3}(x_{2}-x_{1})}{(x_{3}-x_{2})(x_{3}-x_{1})(x_{2}-x_{1})}} }$$<br>$$ {\Large {\color{Violet}b=\frac{y_{2}-y_{1}-a(x_{2}^{2}-x_{1}^{2})}{x_{2}-x_{1}} }}  $$</p><h3 id="Trajectory-equation-of-oblique-throwing-motion">Trajectory equation of oblique throwing motion</h3><p>$$ {\Large {\color{Brown} y = x\tan \theta -\frac{g}{2v_{0}^{2}\cos ^2\theta }x^2 }} $$</p><h4 id="thus">thus</h4><p>$$ {\Large{\color{Red} a = -\frac{g}{2v_{0}^{2}\cos ^2\theta }x^2  }} $$<br>$$ {\Large{\color{Purple} b = \tan \theta}} $$</p><h3 id="The-initial-velocity-and-missile-direction-are-calculated">The initial velocity and missile direction are calculated</h3><h2 id="Emission-equation">Emission equation</h2><p><img src="https://img-blog.csdnimg.cn/20210501154515206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NoaXJwVEI=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><p>After obtaining the trajectory equation of the missile, we need to calculate where to intercept the missile. As shown in the figure, the interception system is at coordinates (0, 24) The missile will be intercepted at point B. if the missile is now at point F and the interceptor’s velocity is V, the launching angle of the interceptor can be calculated.</p><p>It can be obtained from the above equation $v_{0}$ ,Let $\mathit{t}$ be intercepted after seconds, then the equation is as follows:</p><p>$$ {\Large v_{0}\cos\theta \cdot t + v\cos\alpha \cdot t  =14 }$$<br>$$ {\Large  v\sin\alpha\cdot t=5}$$</p><p>$\mathit{t}$ and $\mathit{\alpha}$ can be solved.</p><p>Python代码:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在这里插入代码片</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Python 导弹 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>圆锥曲线仿射变换求解</title>
+      <link href="/2021/10/05/%E5%9C%86%E9%94%A5%E6%9B%B2%E7%BA%BF%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2%E6%B1%82%E8%A7%A3/"/>
+      <url>/2021/10/05/%E5%9C%86%E9%94%A5%E6%9B%B2%E7%BA%BF%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2%E6%B1%82%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><blockquote><p>推荐大佬的文章：<br><a href="https://zhuanlan.zhihu.com/p/33555232">【解析几何】椭圆的仿射变换（伸缩变换）</a><br>仿射变换在圆锥曲线特定题中威力很大，可以多做了解.<br>这里举一个例子：</p></blockquote><h2 id="例：已知​-A-0-2-椭圆-E-frac-x-2-a-2-frac-y-2-b-2-1-a-b-0-的离心率为-frac-sqrt-3-2-F-是椭圆的焦点，直线-AF-的斜率为-frac-2-sqrt-3-2-，-O-为坐标原点">例：已知​$ A(0,-2) $,椭圆  $E:\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1 (a&gt;b&gt;0) $ 的离心率为 $ \frac{\sqrt{3}}{2} $ ,  $F $  是椭圆的焦点，直线  $AF$  的斜率为 $ \frac{2\sqrt{3}}{2} $ ， O 为坐标原点.</h2><h3 id="1-求椭圆E的方程">(1)求椭圆E的方程;</h3><h3 id="2-设过点A的直线l与椭圆E交于P，Q两点，当-triangle-OPQ-面积最大时，求直线-l-的方程">(2)设过点A的直线l与椭圆E交于P，Q两点，当 $ \triangle OPQ $ 面积最大时，求直线 $l$ 的方程.</h3><h2 id="解：">解：</h2><h3 id="1-第一题较简单，略-E-frac-x-2-4-y-2-1">(1)第一题较简单，略.  $E:\frac{x^{2}}{4}+y^{2}=1 $</h3><h3 id="2-由仿射原理可知，仿射前后面积变化为原来的-frac-1-ab-，故当圆-E’-x-2-y-2-1-与直线-l’-构成的三角形-triangle-OP’Q’-面积最大时，-triangle-OPQ-面积最大。">(2)由仿射原理可知，仿射前后面积变化为原来的 $ \frac{1}{ab} $ ，故当圆 $ E’:x^{2}+y^{2}=1 $ 与直线 $ l’ $ 构成的三角形 $ \triangle OP’Q’ $ 面积最大时， $\triangle OPQ $ 面积最大。</h3><p>设原直线方程为 $ y=\frac{k}{2}·x-2 $ ，则仿射后直线方程为  $y’=kx’-2 $ ,<br>直线到圆的距离 $ d=\frac{\left| 2 \right|}{\sqrt{1+k^{2}}} $ ,<br>$P’Q’=2\sqrt{r^{2}-d^{2}}=2\sqrt{1-\frac{4}{1+k^{2}}}  $ ,<br>$S\triangle OP’Q’ = d·P’Q’=\frac{\left| 2 \right|}{\sqrt{1+k^{2}}}·2\sqrt{1-\frac{4}{1+k^{2}}}=4·\frac{\sqrt{1-\frac{4}{1+k^{2}}}}{\sqrt{1+k^{2}}}=4·\sqrt{\frac{1+k^{2}-4}{(1+k^{2})^{2}}} $ ，令  $1+k^{2} = t $ , 则原式等于 $ 4·\sqrt{\frac{t-4}{t^{2}}}​$ ,得t=8时取得最大值.<br>$k^{2}=7,k=\pm\sqrt{7},\frac{k}{2}=\pm\frac{\sqrt{7}}{2}$  ,直线方程为  $y = \pm\frac{\sqrt{7}}{2}x-2 $ ,得解.<br>关于 $ 4·\sqrt{\frac{t-4}{t^{2}}} $ 的最值可以求导，也可以用以下方法：<br>令 $ m=\frac{t-4}{t^{2}} $ ,则 $ \frac{1}{m}=\frac{t^{2}}{t-4} $ ，再用配凑法得最小值.</p><p>更新：<br><img src="/img/m.png" alt="发现一种求二次分式极值的公式"><br><a href="https://pic1.zhimg.com/80/v2-d5637a28d848b60be89809972aab0fff_720w.jpg?source=1940ef5c">原文链接</a><br>$${\color{Violet}<br>\begin{array}{l}<br>N=(A E-B D) x^{2}+2(A F-C D) X+B F-C E \<br>N=\left|\begin{array}{ll}<br>A &amp; B &amp; C \<br>D &amp; E &amp; F<br>\end{array}\right| \<br>m=\frac{t-4}{t^{2}}, N^{\prime}=\left|\begin{array}{ccc}<br>0 &amp; 1 &amp; -4 \<br>1 &amp; 0 &amp; 0<br>\end{array}\right|=-x^{2}+8 x<br>\end{array}<br>} $$</p><p>易知 $ y=-x^{2}+8x $ 的零点为0和8，易知0不可取，舍去.<br><a href="https://www.latexlive.com/#JTdCJTVDY29sb3IlN0JWaW9sZXQlN0QlMjAlMEElNUNiZWdpbiU3QmFycmF5JTdEJTdCbCU3RCUwQU49KEElMjBFLUIlMjBEKSUyMHglNUUlN0IyJTdEKzIoQSUyMEYtQyUyMEQpJTIwWCtCJTIwRi1DJTIwRSUyMCU1QyU1QyUwQU49JTVDbGVmdCU3QyU1Q2JlZ2luJTdCYXJyYXklN0QlN0JsbCU3RCUwQUElMjAmJTIwQiUyMCYlMjBDJTIwJTVDJTVDJTBBRCUyMCYlMjBFJTIwJiUyMEYlMEElNUNlbmQlN0JhcnJheSU3RCU1Q3JpZ2h0JTdDJTIwJTVDJTVDJTBBbT0lNUNmcmFjJTdCdC00JTdEJTdCdCU1RSU3QjIlN0QlN0QsJTIwTiU1RSU3QiU1Q3ByaW1lJTdEPSU1Q2xlZnQlN0MlNUNiZWdpbiU3QmFycmF5JTdEJTdCY2NjJTdEJTBBMCUyMCYlMjAxJTIwJiUyMC00JTIwJTVDJTVDJTBBMSUyMCYlMjAwJTIwJiUyMDAlMEElNUNlbmQlN0JhcnJheSU3RCU1Q3JpZ2h0JTdDPS14JTVFJTdCMiU3RCs4JTIweCUwQSU1Q2VuZCU3QmFycmF5JTdEJTBBJTdEJTIw">点击这里查看原本公式</a><br>该方法大大节省了时间和经历，特别在更为复杂的题中作用更为凸显.</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python使用Pygame实现简单GUI（一） 标签和按钮</title>
       <link href="/2021/10/03/Python-GUI-Lable/"/>
       <url>/2021/10/03/Python-GUI-Lable/</url>
